@@ -1,0 +1,18 @@
+[{
+    "modid": "mrsmith-dataminer",
+    "name": "MrSmith - Data Miner",
+    "description": "Pulls data from the game and mods for use in other systems. Such as item IDs, name, lang files, and recipes.",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authors": ["DarkGuardsman"],
+    "credits": "",
+    "logoFile": "",
+    "screenshots": [],
+    "parent": "",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "useDependencyInformation": "false"
+}]
