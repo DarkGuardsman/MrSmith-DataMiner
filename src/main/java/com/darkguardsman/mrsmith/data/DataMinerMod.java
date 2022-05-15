@@ -74,6 +74,7 @@ public final class DataMinerMod {
             fileEntry.addProperty("key", item.getRegistryName().toString());
             fileEntry.addProperty("name", item.getItemStackDisplayName(item.getDefaultInstance()));
             fileEntry.addProperty("localization", item.getUnlocalizedName(item.getDefaultInstance()));
+            fileEntry.addProperty("image", item.getRegistryName().getResourceDomain() + "_" + item.getItemStackDisplayName(item.getDefaultInstance()).replaceAll("\\s+", "_").toLowerCase());
 
             writeJson(gson, fileEntry, saveFile);
 
@@ -87,7 +88,7 @@ public final class DataMinerMod {
 
                 items.forEach(subItem -> {
                     final String subTypeKey = item.getRegistryName().toString() + "@" + subItem.getItemDamage();
-                    final File subTypeSaveFile = new File(domainFolder, "/" + subTypeKey.replace("@", "_")  + ".json"); //TODO lint file name
+                    final File subTypeSaveFile = new File(domainFolder, "/" + key + "_" + subItem.getItemDamage()  + ".json"); //TODO lint file name
 
                     //Log file we saved again for fast lookup later
                     resourceLocationToFile.put(subTypeKey, subTypeSaveFile.getPath());
@@ -97,6 +98,7 @@ public final class DataMinerMod {
                     subTypeEntry.addProperty("parent", item.getRegistryName().toString());
                     subTypeEntry.addProperty("name", item.getItemStackDisplayName(subItem));
                     subTypeEntry.addProperty("localization", item.getUnlocalizedName(subItem));
+                    fileEntry.addProperty("image", item.getRegistryName().getResourceDomain() + "_" + item.getItemStackDisplayName(subItem).replaceAll("\\s+", "_").toLowerCase());
 
                     writeJson(gson, subTypeEntry, subTypeSaveFile);
                 });
